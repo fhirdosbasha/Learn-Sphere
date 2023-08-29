@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Add Lesson</title>
+		
+		<style>
+						
+			body{
+				background-color: rgb(252, 254, 254);
+				font-family: Arial, sans-serif;
+			}
+			
+			h2{
+				text-align: center;
+				color: rgb(255, 0, 255);
+			}
+			
+			form{
+				border: 1px solid;
+				width: 30%;
+				border-radius: 20px;
+				margin: 2% 30% 0;
+				padding: 0 5% 3%;
+				font-size: 100%;
+				
+			}
+			
+			input{
+				width: 90%;
+				height: 6vh;
+				font-size: 80%;
+				border-radius: 5px;
+			}
+			
+			#cancel, #submit{
+				cursor: pointer;
+				height: 10vh;
+				font-size: 100%;
+				background-color: rgb(64, 0, 64);
+				color: ghostwhite;
+				border-radius: 10px;
+			}
+			
+			#cancel:hover ,#submit:hover{
+				background-color: black;
+			}
+			
+			#cancel{
+				margin-left: 5%;
+				width: 30%;
+			}
+			#submit{
+				margin-left: 10%;
+				width: auto;
+			}
+		</style>
+	</head>
+	<body>
+		<form action="/addLesson" method="post" onsubmit="handleFormSubmission(event)">
+			<h2>Add a Lesson</h2>
+			<label>Course ID</label>
+			<input type="text" name="courseId">	<br><br>
+			
+			<label>Lesson ID</label>
+			<input type="text" name="lessonId">	<br><br>
+			
+			<label>Lesson Name</label>
+			<input type="text" name="lessonName">	<br><br>
+			
+			<label>Lesson Topics</label>
+			<input type="text" name="lessonTopics">	<br><br>
+			
+			<label>Video Link</label>
+			<input type="text" name="videoLink">	<br><br>
+			
+			<input type="button" id="cancel" value="Cancel" onclick="history.back()"/>
+
+			<input type="submit" id="submit" value="ADD LESSON">
+			
+		</form>
+		
+		<script>
+			function handleFormSubmission(event){
+				const form = event.target;
+				event.preventDefault();
+				alert("Lesson added successfully");
+			}
+		</script>
+		
+	</body>
+</html>

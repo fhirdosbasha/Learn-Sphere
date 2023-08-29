@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Courses</title>
+		<style>
+			body {
+			    background-color: #f8f9fa;
+			    font-family: Arial, sans-serif;
+			    align-items: center;
+			}
+			
+			h1 {
+				color: rgb(0, 64, 128);
+			    margin-bottom: 20px;
+			    text-align: center;
+		    }
+
+			table {
+			    margin: 0 auto;
+			    width: 80%;
+			    max-width: 1000px;
+			    
+			}
+			
+			td, th{
+				border: 1px solid;
+				border-radius: 8px;
+				background-color: antiquewhite;
+				height: 10vh;
+			}
+			
+			th {
+			    color: #343a40;
+			}
+			td{
+				text-align: center;
+			}
+			
+			button{
+				height: 6vh;
+				width: 50%;
+				border-radius: 10px;
+				background-color: rgb(128, 128, 128);
+				color: white;
+				cursor: pointer;
+				margin: 2% 25% 0;
+				height: 8vh;
+				font-size: 25px;
+			}
+			
+			button:hover{
+				background-color: #343a40;
+				color: floralwhite;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Course Details:</h1>
+		<table>
+			<thead>
+				<tr>
+					<th>Course ID</th>
+					<th>Course Name</th>
+					<th>Course Price</th>
+					<th>Lessons</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="course : ${courseList}">
+					<td th:text="${course.courseId}"></td>
+					<td th:text="${course.courseName}"></td>
+					<td th:text="${course.coursePrice}"></td>
+					<td>
+						<span th:each="lesson, lessonStat : ${course.lessons}">
+          					<span th:text="${lesson.lessonName}"></span><span th:if="${!lessonStat.last}">, </span>
+        				</span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<a href="/trainerHome"><button>Home</button></a>
+	</body>
+</html>

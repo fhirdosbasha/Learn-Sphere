@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>My Courses</title>
+		<style>
+			body {
+			    background-color: #f8f9fa;
+			    font-family: Arial, sans-serif;
+			    align-items: center;
+			}
+			
+			h1 {
+				color: rgb(0, 64, 128);
+			    margin-bottom: 20px;
+			    text-align: center;
+		    }
+
+			table {
+			    margin: 0 auto;
+			    width: 80%;
+			    max-width: 1000px;
+			    
+			}
+			
+			td, th{
+				border: 1px solid;
+				border-radius: 8px;
+				background-color: antiquewhite;
+				height: 10vh;
+			}
+			
+			th {
+			    color: #343a40;
+			}
+			td{
+				text-align: center;
+			}
+			
+			button{
+				height: 6vh;
+				width: 50%;
+				align-self: center;
+				border-radius: 10px;
+				background-color: rgb(128, 128, 128);
+				color: white;
+				cursor: pointer;
+			}
+			
+			#home{
+				margin: 3% 25% 0;
+				height: 8vh;
+				font-size: 20px;
+				
+			}
+			
+			button:hover{
+				background-color: #343a40;
+				color: floralwhite;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>My Courses</h1><hr>
+		<table>
+			<thead>
+				<th>Course ID</th>
+				<th>Course Name</th>
+				<th>Course Price</th>
+				<th>Lessons</th>
+			</thead>
+			<tbody>
+				<tr th:each="course : ${courseList}">
+					<td th:text="${course.courseId}"></td>
+					<td th:text="${course.courseName}"></td>
+					<td th:text="${course.coursePrice}"></td>
+					<td>
+						<span th:each="lesson, lessonStat : ${course.lessons}">
+		    				<a th:href="@{/viewLesson(lessonId=${lesson.lessonId})}" th:text="${lesson.lessonName}"></a><span th:if="${!lessonStat.last}">, </span>
+						</span>
+					</td>
+
+				</tr>
+			</tbody>
+		</table>
+		
+		<a href="/studentHome"><button id="home">Home</button></a>
+
+	</body>
+</html>
