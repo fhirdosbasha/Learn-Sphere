@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Login</title>
+		
+		<style>
+			
+			body{
+				background-color: rgb(252, 254, 254);
+				font-family: Arial, sans-serif;
+			}
+			
+			h1{
+				text-align: center;
+				color: forestgreen;
+			}
+			
+			form{
+				border: 1px solid;
+				width: 30%;
+				border-radius: 20px;
+				margin: 10% 30%;
+				padding: 0 5% 3%;
+				font-size: 120%;
+			}
+			
+			input{
+				width: 90%;
+				height: 6vh;
+				font-size: 80%;
+			}
+			
+			#submit{
+				cursor: pointer;
+				height: 10vh;
+				width: 30%;
+				font-size: 100%;
+				background-color: rgb(30, 30, 30);
+				color: ghostwhite;
+				border-radius: 10px;
+				margin-left: 30%;
+			}
+			
+			#submit:hover{
+				background-color: black;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<form action="/userLogin" method="post">
+			<h1>Learn Sphere</h1>
+			<label>Email Address</label><br>
+			<input type="email" name="email">	<br><br>
+			
+			<label>Password</label><br>
+			<input type="password" name="password">	<br><br>
+
+			<input id="submit" type="submit" value="LOGIN">
+		</form>		
+		
+		<div th:if="${param.error}">    
+    		Invalid username and password.
+		</div>
+		<div th:if="${param.registered}"> 
+			Registered successfully!   
+		</div>
+	</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Registration</title>
+		
+		<style>
+			form{
+				border: 1px solid;
+				border-radius: 10px;
+				width: 30%;
+				margin: 5% 20%;
+				padding: 3%;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<form action="/addUser" method="post">
+			<label>First Name</label>
+			<input type="text" name="fname">	<br><br>
+			
+			<label>Last Name</label>
+			<input type="text" name="lname">	<br><br>
+			
+			<label>Email</label>
+			<input type="email" name="email">	<br><br>
+			
+			<label>Password</label>
+			<input type="password" name="password">	<br><br>
+			
+			<label>Role</label>
+			<input type="radio" name="role" value="trainer">Trainer
+			<input type="radio" name="role" value="student">Student	<br><br>
+			
+			<label>Mobile</label>
+			<input type="text" name="mobile">	<br><br>
+			
+			<input type="submit" value="REGISTER">
+			
+		</form>
+		
+		<div th:if="${param.notfound}">
+			No user found
+		</div>
+		<div th:if="${param.alreadyExist}">
+			<p>Email already exist. Try with a different email</p>
+		</div>
+	</body>
+</html>
