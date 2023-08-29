@@ -1,0 +1,31 @@
+body
+{
+	font-family: Arial, sans-serif;
+	background-image: url('/images/bbgg.jpg');
+	background-size: cover;
+	
+}
+
+input{
+	height: 20vh;
+	width: 30%;
+	border-radius: 40px;
+	font-size: 200%;
+	background-color: blueviolet;
+	margin: 15% 9% 0;
+	column-gap: 55%;
+	color: whitesmoke;
+	opacity: 80%;
+}
+
+input:hover
+{
+	background-color: aqua;
+	color: darkred;
+}
+
+h1{
+	color: rgb(64, 0, 64);
+	text-align: center;
+	margin-top: 14%;
+}
